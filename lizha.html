@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halooo Lizha Cantik 💗</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Comic Sans MS", cursive;
+        background: #fff0f6; /* soft pink aesthetic */
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        margin-top: 40px;
+        font-size: 32px;
+        color: #d63384;
+        text-shadow: 2px 2px #ffd6e7;
+    }
+
+    h2 {
+        color: #ff4d6d;
+        text-shadow: 1px 1px #ffe3ef;
+    }
+
+    .container {
+        margin-top: 40px;
+        padding: 20px;
+    }
+
+    button {
+        padding: 12px 22px;
+        margin: 10px;
+        font-size: 18px;
+        background: #ff8fb1;
+        border: none;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 2px 3px 5px #c45a7a;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background: #ff7aa6;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* Love falling animation */
+    .love {
+        position: fixed;
+        top: -10px;
+        color: #ff4d6dbb;
+        font-size: 20px;
+        animation: fall 4s linear infinite;
+        z-index: 9999;
+    }
+
+    @keyframes fall {
+        0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Glitter animation */
+    .glitter {
+        position: fixed;
+        width: 5px;
+        height: 5px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: glitter 2s infinite;
+        z-index: 9998;
+    }
+
+    @keyframes glitter {
+        0%   { transform: scale(1); opacity: 1; }
+        50%  { transform: scale(0.3); opacity: 0.4; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    #final-text {
+        background: #ffffffcc;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px #ffc1d9;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #444;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>apa kabar lizhaaa 💐</h1>
+
+<!-- Background music -->
+<audio id="bgm" autoplay loop>
+    <source src="Donne Maula - Bercinta Lewat Kata (Official Lyric Video) OST Jatuh Cinta Seperti di Film-Film.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Question 1 -->
+<div class="container" id="q1">
+    <h2>lizha kangen ngga sama aku? 🩷</h2>
+    <button onclick="iyaKangen()">iya kangen</button>
+    <button onclick="gaKangen()">ngga kangen</button>
+</div>
+
+<!-- Question 2 -->
+<div class="container hidden" id="q2">
+    <h2>mau denger penjelasan aku ga? 🤍</h2>
+    <button onclick="iyaMau()">iya mau</button>
+    <button onclick="gaMau()">ga mau</button>
+</div>
+
+<!-- Final text -->
+<div class="container hidden" id="final">
+    <div id="final-text">
+        aku inget pas di kkn kita banyak aktifitas keluar, jalan-jalan kesana kemari berjalan-jalan di kota purwakarta juga sewaktu di msmb januari lalu kita dua harian full bersama dan serasa have fun banget sampai yaa maunya trs bersama.<br><br>
+        disitu aku ngerasa seneng banget dan berkesan meskipun kondisinya aku down dengan segala hal. jujur aku ngerasa seneng bangett dan nyaman di momen saat itu, dan disitu aku rasa lizha dateng sebagai obat buat aku atas lukaa sebelumnya.<br><br>
+        lizhaaa, sagitarius girl terbaik yang aku kenal dari sejak lima tahun lalu dan masih sama baiknyaaa, tulus, dan bijaksana sampe hari ini and i am very lucky punya crush kaya lizhaaa.<br><br>
+        zhaa, kamu sehat terus yaa mesti happy teruss kejar apapun yang selalu jadi kebutuhan kamuu, aku selalu ngedukung. semangatt jalanin daily activity nya yaaa zhaa.<br><br>
+        🫂 <b>peluk virtual</b> 💗
+    </div>
+</div>
+
+<script>
+/* Logic */
+function iyaKangen() {
+    document.getElementById("q1").classList.add("hidden");
+    document.getElementById("q2").classList.remove("hidden");
+}
+
+function gaKangen() {
+    alert("zhaa harus klik 'iya kangen' dulu 🩷");
+}
+
+function iyaMau() {
+    document.getElementById("q2").classList.add("hidden");
+    document.getElementById("final").classList.remove("hidden");
+}
+
+function gaMau() {
+    alert("yaaa masa ga mau denger, klik 'iya mau' dong zhaa 🤍");
+}
+
+/* Love falling effect */
+setInterval(() => {
+    const love = document.createElement("div");
+    love.classList.add("love");
+    love.innerHTML = "💗";
+    love.style.left = Math.random() * 100 + "vw";
+    love.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(love);
+    setTimeout(() => love.remove(), 4000);
+}, 300);
+
+/* Glitter effect */
+setInterval(() => {
+    const g = document.createElement("div");
+    g.classList.add("glitter");
+    g.style.left = Math.random() * 100 + "vw";
+    g.style.top = Math.random() * 100 + "vh";
+    document.body.appendChild(g);
+    setTimeout(() => g.remove(), 2000);
+}, 200);
+</script>
+
+</body>
+</html>
