@@ -42,9 +42,8 @@
     button:hover {
         background: #ff7aa6;
     }
-    .hidden {
-        display: none;
-    }
+    .hidden { display: none; }
+
     .love {
         position: fixed;
         top: -10px;
@@ -53,10 +52,12 @@
         animation: fall 4s linear infinite;
         z-index: 9999;
     }
+
     @keyframes fall {
         0% { transform: translateY(0) rotate(0deg); opacity: 1; }
         100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
+
     .glitter {
         position: fixed;
         width: 5px;
@@ -67,11 +68,13 @@
         animation: glitter 2s infinite;
         z-index: 9998;
     }
+
     @keyframes glitter {
         0% { transform: scale(1); opacity: 1; }
         50% { transform: scale(0.3); opacity: 0.4; }
         100% { transform: scale(1); opacity: 1; }
     }
+
     #final-text {
         background: #ffffffcc;
         margin: 20px;
@@ -89,16 +92,16 @@
 
 <h1>apa kabar lizhaaa 💐</h1>
 
-<!-- Background music -->
-<audio id="bgm" autoplay loop>
-    <source src="lagu.mp3" type="audio/mpeg">
+<!-- MUSIC FIX -->
+<audio id="bgm" preload="auto">
+    <source src="musik.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Question 1 -->
 <div class="container" id="q1">
     <h2>lizha kangen ngga sama aku? 🩷</h2>
     <button onclick="iyaKangen()">iya kangen</button>
-    <button onclick="gaKangen()">ngga kangen</button>
+    <button onclick="gaKangen()">ga kangen</button>
 </div>
 
 <!-- Question 2 -->
@@ -108,33 +111,43 @@
     <button onclick="gaMau()">ga mau</button>
 </div>
 
-<!-- Final text -->
+<!-- Final -->
 <div class="container hidden" id="final">
     <div id="final-text">
-        aku inget pas di kkn kita banyak aktifitas keluar, jalan-jalan kesana kemari berjalan-jalan di kota purwakarta juga sewaktu di msmb januari lalu kita dua harian full bersama dan serasa have fun banget sampai yaa maunya trs bersama.<br><br>
-        disitu aku ngerasa seneng banget dan berkesan meskipun kondisinya aku down dengan segala hal. jujur aku ngerasa seneng bangett dan nyaman di momen saat itu, dan disitu aku rasa lizha dateng sebagai obat buat aku atas lukaa sebelumnya.<br><br>
-        lizhaaa, sagitarius girl terbaik yang aku kenal dari sejak lima tahun lalu dan masih sama baiknyaaa, tulus, dan bijaksana sampe hari ini and i am very lucky punya crush kaya lizhaaa.<br><br>
-        zhaa, kamu sehat terus yaa mesti happy teruss kejar apapun yang selalu jadi kebutuhan kamuu, aku selalu ngedukung. semangatt jalanin daily activity nya yaaa zhaa.<br><br>
+        aku inget pas di kkn kita banyak aktifitas keluar, jalan-jalan kesana kemari berjalan-jalan di kota purwakarta juga sewaktu di msmb januari lalu kita dua harian full bersama dan serasa have fun banget.<br><br>
+        disitu aku ngerasa seneng banget dan berkesan meskipun kondisinya aku down. dan aku rasa lizha dateng sebagai obat buat aku atas luka sebelumnya.<br><br>
+        lizhaaa, sagitarius girl terbaik yang aku kenal sejak lima tahun lalu. aku beruntung banget punya crush kaya lizhaaa.<br><br>
+        zhaa, kamu sehat terus yaa, mesti happy terus. semangat jalani hari-harinya yaaa zhaa 💗<br><br>
         🫂 <b>peluk virtual</b> 💗
     </div>
 </div>
 
 <script>
+// FIX AUTOPLAY UNTUK IPHONE
+document.addEventListener("click", () => {
+    const audio = document.getElementById("bgm");
+    if (audio.paused) audio.play().catch(()=>{});
+}, { once: true });
+
 function iyaKangen() {
     document.getElementById("q1").classList.add("hidden");
     document.getElementById("q2").classList.remove("hidden");
 }
+
 function gaKangen() {
     alert("zhaa harus klik 'iya kangen' dulu 🩷");
 }
+
 function iyaMau() {
     document.getElementById("q2").classList.add("hidden");
     document.getElementById("final").classList.remove("hidden");
 }
+
 function gaMau() {
-    alert("yaaa masa ga mau denger, klik 'iya mau' dong zhaa 🤍");
+    alert("masa ga mau denger penjelasan aku 😭 klik 'iya mau' yaa 🤍");
 }
 
+// Falling hearts
 setInterval(() => {
     const love = document.createElement("div");
     love.classList.add("love");
@@ -145,6 +158,7 @@ setInterval(() => {
     setTimeout(() => love.remove(), 4000);
 }, 300);
 
+// Glitter
 setInterval(() => {
     const g = document.createElement("div");
     g.classList.add("glitter");
